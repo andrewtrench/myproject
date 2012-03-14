@@ -1,0 +1,14 @@
+
+<html>
+<h1>Search results</h1>
+<body>
+<p> If a cell is blank its because no value is available for that position</p>
+<table border=1>
+{% for item in search %}
+<tr>
+<td>{{ item.council}}</td><td>{{ item.role}}</td><td>R{{ item.salary}}</td><td>R{{ item.contributions}}</td><td>R{{ item.allowances}}</td><td>R{{ item.performance_bonus}}</td><td>R{{ item.inkind_benefits}}</td><td>R{{ item.total_package}}</td>
+<tr>
+{% endfor %}
+<table>
+</body>
+</html>
