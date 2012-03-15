@@ -2,6 +2,9 @@ from django.conf.urls.defaults import patterns, include, url
 from myproject.council_pay import views
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.conf import settings
+import os
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -17,4 +20,11 @@ urlpatterns = patterns('',
      url(r'^home/', 'myproject.council_pay.views.home'),
 	 url(r'^search_form/$', 'myproject.council_pay.views.search_form'),
 	 url(r'^search/$', 'myproject.council_pay.views.search'),
+	 url(r'^council/?P<name>', 'myproject.council_pay.views.detail'),
+	 url(r'^bonus/', 'myproject.council_pay.views.performance'),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'C:\\django_project\\myproject\\static\\'}),
+    )

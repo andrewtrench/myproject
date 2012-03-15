@@ -1,0 +1,16 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
+<head>
+{% load humanize %}
+<h1>{{ council.council }}</h1>
+<table border="1">
+<tr>
+<td>{{ council.role}}</td>
+<td>R{{ council.salary|floatformat:"-2"|intcomma  }}</td>
+<td>R{{ council.bonus|floatformat:"-2"|intcomma }}</td>
+<td>R{{ council.province|floatformat:"-2"|intcomma }}</td>
+</tr>
+
+</table>
+</html>

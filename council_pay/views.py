@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import DetailView, ListView
 from django.shortcuts import render_to_response, get_object_or_404
 from myproject.council_pay.models import Councilpay
+from django.db.models import Count
 
 
 
@@ -21,24 +22,26 @@ def council_results(council_list):
 def search(request):
     if 'q' in request.GET:
 		term = (request.GET['q']).title()
-		search = Councilpay.objects.filter(council__icontains=term)
+		council_index = Councilpay.objects.values('council').annotate(Count('council'))
+		#produces query set of all council names with 'council_count' and 'council' attributes
+		search = council_index.filter(council__icontains=term)
 		
-		council_list =[]
-		roles = []
-		data = []
-		for item in search:
-		   
-		   if item.council not in council_list:
-		      council_list.append(item.council)
-		print len(council_list)	  
-		print council_list
-		if len (council_list) ==1:
-
-		   return render_to_response('search.html', {'search':search})
-                if len(council_list)>1:
-			all_councils = Councilpay.objects.filter(council__in=council_list)
-			return render_to_response('index.html', {'all_councils':all_councils})
+		
+		return render_to_response('search.html', {'search':search})
+        
 			
     else:
-        message = 'You submitted an empty form.'
+        message = 'Whoops! You want to try that again?'
         return HttpResponse(message)
+
+def detail(request):
+    choice = request.GET['name']
+    print choice
+    council = Councilpay.objects.filter(council=choice)
+    print council
+    return render_to_response('detail.html', {'council': council})
+	
+def performance(request):
+   bonuses = Councilpay.objects.all().filter(performance_bonus__gte = 0).exclude(role__icontains='Total').exclude(role__icontains='Executive Managers (x6)').order_by('-performance_bonus')
+   return render_to_response('bonus.html',{'bonuses':bonuses})
+	

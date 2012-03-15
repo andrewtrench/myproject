@@ -25,7 +25,10 @@ class Councilpay(models.Model):
     def __unicode__(self):
         return '%s' % (self.council)
 	
+    def get_absolute_url(self):
+        return "/council/%i/" % self.id
 		
     class Meta:
         db_table = u'councilpay'
         verbose_name = 'Council Record'
+		
