@@ -20,7 +20,7 @@ urlpatterns = patterns('',
      url(r'^home/', 'myproject.council_pay.views.home'),
 	 url(r'^search_form/$', 'myproject.council_pay.views.search_form'),
 	 url(r'^search/$', 'myproject.council_pay.views.search'),
-	 url(r'^council/?P<name>', 'myproject.council_pay.views.detail'),
+	 url(r'^council/(?P<code>\w{3,8})', 'myproject.council_pay.views.detail'),
 	 url(r'^bonus/', 'myproject.council_pay.views.performance'),
 	 url(r'^pricey/', 'myproject.council_pay.views.pricey_council'),
 )

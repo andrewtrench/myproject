@@ -25,7 +25,12 @@ def search(request):
 		council_index = Councilpay.objects.values('council').annotate(Count('council'))
 		#produces query set of all council names with 'council_count' and 'council' attributes
 		search = council_index.filter(council__icontains=term)
-		
+		council_code = ''
+		for item in search:
+		   
+		   code = item['council'].split('(')[1].replace(')','')
+		   item['code']=code
+		   
 		
 		return render_to_response('search.html', {'search':search})
         
@@ -34,12 +39,16 @@ def search(request):
         message = 'Whoops! You want to try that again?'
         return HttpResponse(message)
 
-def detail(request):
-    choice = request.GET['name']
-    print choice
-    council = Councilpay.objects.filter(council=choice)
-    print council
-    return render_to_response('detail.html', {'council': council})
+def detail(request, code):
+    
+    code = "("+code+")"
+    	
+    council = Councilpay.objects.filter(council__icontains=code).filter(total_package__gt = 0).order_by('-total_package')
+    name = council[1].council.split('(')[0]
+    province = council[1].province
+    
+	  
+    return render_to_response('detail.html', {'council': council, 'name':name,'province':province})
 	
 def performance(request):
    bonuses = Councilpay.objects.all().exclude(performance_bonus = 0).exclude(role__icontains='Total').exclude(role__icontains='Executive Managers (x6)').order_by('-performance_bonus')

@@ -3,14 +3,24 @@
 <link rel="stylesheet" type="text/css" href="/static/style.css" />
 <head>
 {% load humanize %}
-<h1>{{ council.council }}</h1>
+<h1>{{ name }} - {{ province }}</h1>
 <table border="1">
 <tr>
-<td>{{ council.role}}</td>
-<td>R{{ council.salary|floatformat:"-2"|intcomma  }}</td>
-<td>R{{ council.bonus|floatformat:"-2"|intcomma }}</td>
-<td>R{{ council.province|floatformat:"-2"|intcomma }}</td>
+<th>Positon</th>
+<th>Package</th>
+<th>Salary</th>
+<th>Bonus</th>
+<th>Contributions</th>
 </tr>
+{% for item in council %}
 
+<tr>
+<td>{{ item.role}}</td>
+<td>R{{ item.total_package|floatformat:"-2"|intcomma  }}</td>
+<td>R{{ item.salary|floatformat:"-2"|intcomma  }}</td>
+<td>R{{ item.performance_bonus|floatformat:"-2"|intcomma }}</td>
+<td>R{{ item.contributions|floatformat:"-2"|intcomma }}</td>
+</tr>
+{% endfor %}
 </table>
 </html>
