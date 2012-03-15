@@ -9,12 +9,14 @@
 <tr>
 <th>Council</th>
 <th>Number of Entries</th>
+<th>Code</th>
 </tr>
 
 {% for item in search %}
 
 <tr>
-<td><a href="/council/{{ item.council }}">{{ item.council }}</a></td><td>{{ item.council__count}}</td>
+<td><a href="/council/{{ item.code }}">{{ item.council }}</a></td><td>{{ item.council__count}}</td>
+<td>{{ item.code }}</td>
 <tr>
 {% endfor %}
 <table>
