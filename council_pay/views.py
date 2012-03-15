@@ -42,6 +42,10 @@ def detail(request):
     return render_to_response('detail.html', {'council': council})
 	
 def performance(request):
-   bonuses = Councilpay.objects.all().filter(performance_bonus__gte = 0).exclude(role__icontains='Total').exclude(role__icontains='Executive Managers (x6)').order_by('-performance_bonus')
+   bonuses = Councilpay.objects.all().exclude(performance_bonus = 0).exclude(role__icontains='Total').exclude(role__icontains='Executive Managers (x6)').order_by('-performance_bonus')
    return render_to_response('bonus.html',{'bonuses':bonuses})
+   
+def pricey_council(request):
+   total_bill = Councilpay.objects.all().filter(role__icontains = "Total Senior Managers of the Municipality").order_by('-total_package')
+   return render_to_response('mostpricey.html', {'total_bill': total_bill})   
 	

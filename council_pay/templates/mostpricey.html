@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+<h1>Most Expensive Senior Municipal Management Teams</h1>
+<body>
+{% load humanize %}
+
+<table border=1>
+<tr>
+<th>Council</th>
+<th>Size of Team</th>
+<th>Total Salaries</th>
+<th>Total Bonus</th>
+<th>Total Contributions</th>
+<th>Total Allowances</th>
+<th>Total In-kind Benefits</th>
+<th>Total Annual Costs</th>
+</tr>
+
+{% for item in total_bill %}
+
+<tr>
+<td>{{ item.council }}</a></td><td>{{ item.number }}</td><td>R{{ item.salary|floatformat:"-2"|intcomma}}</td><td>R{{ item.performance_bonus|floatformat:"-2"|intcomma }}</td>
+<td>R{{ item.contributions|floatformat:"-2"|intcomma}}</td><td>R {{ item.allowances|floatformat:"-2"|intcomma }}</td>
+<td>R{{ item.inkind_benefits|floatformat:"-2"|intcomma }}</td><td>R {{item.total_package|floatformat:"-2"|intcomma}}</td>
+<tr>
+{% endfor %}
+<table>
+</body>
+</html>

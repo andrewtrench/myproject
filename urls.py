@@ -22,6 +22,7 @@ urlpatterns = patterns('',
 	 url(r'^search/$', 'myproject.council_pay.views.search'),
 	 url(r'^council/?P<name>', 'myproject.council_pay.views.detail'),
 	 url(r'^bonus/', 'myproject.council_pay.views.performance'),
+	 url(r'^pricey/', 'myproject.council_pay.views.pricey_council'),
 )
 
 if settings.DEBUG:
