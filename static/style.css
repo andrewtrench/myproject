@@ -5,6 +5,40 @@ xx  URL: http://www.cssplay.co.uk/  xx
 xx  Country: England                xx
 xx  Date: 2005-10-23                xx
 xx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+div.wrapper{
+    width: 100%;
+}
+
+div.left_box{
+    float: left;
+    padding: 10px;
+    width: 50%;
+	height: 100%;
+    border: 1px solid gray;
+}
+
+div.right_box{
+    float: right;
+    padding: 10px;
+    width: 45%;
+	height: 100%;
+    border: 1px solid gray;
+}
+
+#map 
+{
+width: 90%;
+height: 300px;
+padding: 10px;
+float: auto;
+
+
+
+}
+
+
+
 table {
   border-collapse:collapse; 
   font-family:verdana, arial, sans-serif; 
@@ -86,6 +120,7 @@ tbody td a:visited {
   }
 tbody td a {
   color:#000; 
+  border: 0.8em solid #eee;
   font-weight:normal;
   }
 tbody tr th a:hover {
@@ -144,3 +179,9 @@ background: #ffa20c;
 border: 1px solid #781351;
 padding: 5px 6px
 } 
+
+
+#map .p 
+{
+float: right;
+}

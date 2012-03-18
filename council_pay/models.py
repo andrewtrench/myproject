@@ -32,3 +32,13 @@ class Councilpay(models.Model):
         db_table = u'councilpay'
         verbose_name = 'Council Record'
 		
+class Geo(models.Model):
+    place = models.CharField(max_length=150, blank=True)
+    code = models.CharField(max_length=150, primary_key=True)
+    area = models.CharField(max_length=150, blank=True)
+    population = models.CharField(max_length=150, blank=True)
+    lat = models.FloatField(null=True, blank=True)
+    lng = models.FloatField(null=True, blank=True)
+    class Meta:
+        db_table = u'geo'
+		
