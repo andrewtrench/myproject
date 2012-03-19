@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from django.views.generic import DetailView, ListView
 from django.shortcuts import render_to_response, get_object_or_404
 from myproject.council_pay.models import Councilpay, Geo
-from django.db.models import Count
+from django.db.models import Count, Q
+from pygooglechart import PieChart3D
+
+
 
 
 
@@ -12,8 +15,8 @@ def home(request):
    return render_to_response('index.html',{'all_councils':all_councils})
    
 def search_form(request):
-	
-    return render_to_response('search_form.html')   
+    points = Geo.objects.all()
+    return render_to_response('search_form.html', {'points': points})   
 
 def council_results(council_list):
 		all_councils=council_list
@@ -38,6 +41,7 @@ def search(request):
     else:
         message = 'Whoops! You want to try that again?'
         return HttpResponse(message)
+	
 
 def detail(request, code):
     new_code = code
@@ -62,6 +66,22 @@ def detail(request, code):
            zoom = 11
            area = council_loc[0].area
            population = council_loc[0].population
+		 
+		 
+    chart = PieChart3D(150,150)
+    chart_data=council.exclude(role__icontains="Total")[0:5]
+    cash = []
+    for item in chart_data:
+	   cash.append(item.total_package)
+    chart.add_data(cash)
+    labels = []
+    for item in chart_data:
+	   labels.append(item.role)
+    chart.set_pie_labels(labels)
+    chart_url = chart.get_url()
+	
+	
+	
 	  
     return render_to_response('detail.html', {'council': council, 
 	'name':name,
@@ -71,6 +91,7 @@ def detail(request, code):
 	'zoom':zoom,
 	'area': area,
 	'population': population,
+	'chart_url': chart_url,
 	
 	})
 	
@@ -81,6 +102,12 @@ def performance(request):
 def pricey_council(request):
    total_bill = Councilpay.objects.all().filter(role__icontains = "Total Senior Managers of the Municipality").order_by('-total_package')
    return render_to_response('mostpricey.html', {'total_bill': total_bill}) 
+   
+def mayors(request):
+   mayors = Councilpay.objects.filter(Q(role = "Executive Mayor") | Q(role = "Mayor")).order_by('-total_package')
+   
+   
+   return render_to_response('mayors.html',{'mayors':mayors})
 
 def graph(request):
    return render_to_response('detail_graph.html')   
@@ -88,4 +115,12 @@ def graph(request):
 def test(request):
    'Display map'
    return render_to_response('test.html', {})
+   
+
+
+def google_map(request):
+    points = Geo.objects.all()
+    	
+    return render_to_response('google_maps.html',
+                              {'points': points,})
 	

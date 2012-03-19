@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="/static/style.css" />
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
 <script>
 var map;
 function initialize() {
@@ -19,6 +20,36 @@ function initialize() {
 }
 </script>
 
+<!-- Place this tag in your head or just before your close body tag -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    
+    <script src="../static/RGraph/libraries/RGraph.common.core.js" ></script>
+
+    <script src="../static/RGraph/libraries/RGraph.pie.js" ></script>
+    <script src="../static/RGraph/libraries/RGraph.common.key.js" ></script>
+    <!--[if lt IE 9]><script src="../excanvas/excanvas.original.js"></script><![endif]-->
+
+	<script>
+        window.onload = function ()
+        {
+            var pie2 = new RGraph.Pie('pie2', [12,29,45,17,7]); // Create the pie object
+            pie2.Set('chart.gutter.left', 45);
+            pie2.Set('chart.colors', ['red', 'pink', '#6f6', 'blue', 'yellow']);
+            pie2.Set('chart.key', ['John (2%)', 'Richard (29%)', 'Fred (45%)', 'Brian (17%)', 'Peter (7%)']);
+            pie2.Set('chart.key.background', 'white');
+            pie2.Set('chart.strokestyle', 'white');
+            pie2.Set('chart.linewidth', 3);
+            pie2.Set('chart.exploded', [10,10,10,20,20]);
+            pie2.Set('chart.shadow', true);
+            pie2.Set('chart.shadow.offsetx', 0);
+            pie2.Set('chart.shadow.offsety', 0);
+            pie2.Set('chart.shadow.blur', 25);
+            
+            pie2.Draw();
+        }
+    </script>
+	
+	
 </head>
 <div class = "wrapper">
 
@@ -26,7 +57,7 @@ function initialize() {
 
 	
 {% load humanize %}
-<h1>{{ name }} - {{ province }}</h1>
+<h1>Name of Council: {{ name }} - {{ province }}</h1>
 <table border = 1>
 <tr>
 <th>Positon</th>
@@ -71,6 +102,18 @@ function initialize() {
 	
 	</body>
 	</div>
+<div class = "right_box_two">
+<h2>Slice of The Pie</h2>
+<h1>Pie <span>charts</span></h1>
+
+    <script>
+        if (RGraph.isOld()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer does not natively support the HTML5 canvas tag, so if you want to see the charts, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul> <b>Note:</b> Internet Explorer 9 fully supports the canvas tag.</div>');
+        }
+    </script>
+	<div style="text-align: center">
+	  <canvas id="pie2" width="290" height="290">[No canvas support]</canvas>
+	  <div>
 
 </div>
 </html>

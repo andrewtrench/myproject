@@ -6,69 +6,93 @@ xx  Country: England                xx
 xx  Date: 2005-10-23                xx
 xx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
-div.wrapper{
-    width: 100%;
+h1{
+  font-family: arial,verdana, sans-serif; 
+font-size:24px; 
+margin-top:20px;
+
 }
 
 div.left_box{
     float: left;
-    padding: 10px;
-    width: 50%;
-	height: 100%;
-    border: 1px solid gray;
+    margin: 5px;
+    width: 610px;
+
+}
+
+div.left_box h1{
+  font-family: arial,verdana, sans-serif; 
+font-size:24px; 
+
 }
 
 div.right_box{
     float: right;
-    padding: 10px;
-    width: 45%;
-	height: 100%;
-    border: 1px solid gray;
+    margin: 70px 0px 0px 0px;
+
+    width: 310px;
+margin-right:10px;
+
 }
+
+div.right_box_two {
+    float: right;
+    margin: 70px 0px 0px 0px;
+
+    width: 310px;
+margin-right:10px;
+
+}
+
 
 #map 
 {
-width: 90%;
+width: 300px;
 height: 300px;
-padding: 10px;
-float: auto;
-
-
-
+padding: 5px; 
+border:1px solid #888;
+}
+#front_map
+{
+width:700px;
+height: 500px;
+padding: 15px;
+margin-top:10px;
+border: 1px solid #888;
 }
 
 
 
 table {
   border-collapse:collapse; 
-  font-family:verdana, arial, sans-serif; 
-  font-size:0.75em; 
+  font-family: arial,verdana, sans-serif; 
+  font-size:13px; 
   line-height:2em; 
-  border:1px solid #363;
+  border:1px solid #888;
   }
 td, th {
   padding:0 0.5em; 
-  border-top:1px solid #ddd;
+  border-top:1px solid #888;
   }
 tr.odd {
   background:#eee;
   }
 th {
-  background:#839965;
+  background:#cccccc;
   }
 caption, tfoot {
-  font-family:georgia, "times new roman", serif; 
+   font-family: arial,verdana, sans-serif; 
   font-size:3em; 
   line-height:2em; 
   height:2em; 
   padding-right:0.25em; 
   text-align:right; 
-  color:#363; 
-  border:1px solid #ddd;
+  color:#888; 
+  border:1px solid #888;
   }
 tfoot th {
   background:#fff; 
-  color:#363; 
+  color:#888; 
   font-weight:normal;
   }
 thead tr {
@@ -77,14 +101,14 @@ thead tr {
   }
 thead tr th:first-child {
   color:#fc6; 
-  border-right:1px solid #000; 
+  border-right:1px solid #888; 
   text-align:right; 
   padding-right:1.5em;
   }
 tbody th {
   padding:0; 
-  border-right:1px solid #fff; 
-  border-top:1px solid #000;
+  border-right:1px solid #000000; 
+  border-top:1px solid #888;
   width:16em; 
   vertical-align:middle;
   }
@@ -92,7 +116,7 @@ tbody tr.odd th {
   border-right:1px solid #eee;
   }
 tbody td {
-  color:#363; 
+  color:#888; 
   vertical-align:middle; 
   height:4em;
   }
@@ -104,8 +128,8 @@ tbody th a {
   text-align:right; 
   padding-right:0.5em; 
   float:right; 
-  border-top:0.8em solid #839965; 
-  border-bottom:0.8em solid #839965;
+  border-top:0.8em solid #cccccc; 
+  border-bottom:0.8em solid #cccccc;
   }
 tbody tr th a:visited {
   border-right:0.8em solid #fff;
@@ -151,11 +175,11 @@ margin-left: 4.5em;
 }
 input
 {
-color: #781351;
-background: #D8F3B4;
-border: 1px solid #781351;
-font-size:1.75em; 
-line-height:2em;
+color: #000000;
+background: #cccccc;
+
+font-size:18px; 
+
 }
 
 .submit input
@@ -185,3 +209,17 @@ padding: 5px 6px
 {
 float: right;
 }
+
+.right_box p 
+{
+  font-family: arial,verdana, sans-serif; 
+  font-size:16px;
+font-weight:bold;
+}
+
+tbody tr td {
+color: #000;
+border-style: solid;
+border-color: #000;
+
+  }

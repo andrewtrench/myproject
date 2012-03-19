@@ -1,0 +1,27 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+<h1>Mayors by total packages</h1>
+<p>Note: This data originates from the South African National Treasury and we are not responsible for errrors in the original data</p>
+<body>
+{% load humanize %}
+
+<table border=1>
+<tr>
+<th>Council</th>
+<th>Position</th>
+<th>No. of staff in category</th>
+<th>Total Package</th>
+
+</tr>
+
+{% for item in mayors %}
+
+<tr>
+<td>{{ item.council }}</a></td><td>{{ item.role}}</td><td>{{ item.number }}</a></td><td>R{{ item.total_package|floatformat:"-2"|intcomma }}</td>
+<tr>
+{% endfor %}
+<table>
+</body>
+</html>

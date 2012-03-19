@@ -1,27 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
+<html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="/static/style.css" />
     <title>Google Maps</title>
     <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAmxFu0iqKaD56FhY7IW0ushRCxgbN4WNSd5MNM8rMn9ltPzzgoRTbqs8WGNtTkuCGEFAbGzFt8A-Pkg" type="text/javascript"></script>
   </head>
+  <body onunload="GUnload()">
 
-
-
-
-</head>
-    <title>Search</title>
-</head>
-<body onunload="GUnload()">
-<div class="left_box">
-<h1>What's Your Mayor Worth?</h1>
-    <form action="/search/" method="get">
-        <input type="text" name="q">
-        <input type="submit" value="Search">
-    </form>
-
-	<div id="front_map"> </div>
+    <div id="map" style="width: 700px; height: 550px"></div>
     
 
 
@@ -42,9 +28,7 @@
       // Each instance of the function preserves the contends of a different instance
       // of the "marker" and "html" variables which will be needed later when the event triggers.    
       function createMarker(point,html) {
-	    
         var marker = new GMarker(point);
-		
         GEvent.addListener(marker, "click", function() {
           marker.openInfoWindowHtml(html);
         });
@@ -52,7 +36,7 @@
       }
 
       // Display the map, with some controls and set the initial location 
-      var map = new GMap2(document.getElementById("front_map"));
+      var map = new GMap2(document.getElementById("map"));
       map.addControl(new GLargeMapControl());
       map.addControl(new GMapTypeControl());
       map.setCenter(new GLatLng(-31.288566,24.477539),6);
@@ -61,8 +45,7 @@
     {% for point in points %}
       var point = new GLatLng( {{ point.lat}}, {{ point.lng }});
       var marker = createMarker(point,'<div style="width:240px">{{ point.place }} <a href="/council/{{ point.code }}">Click here to see details of the council for this area<\/a><\/div>')
-      
-	  map.addOverlay(marker);
+      map.addOverlay(marker);
      {% endfor %}
     }
     
@@ -78,29 +61,6 @@
 
     //]]>
     </script>
-  </div>
-  
-  <div class="right_box">
-  <h2>Chart-Toppers</h2>
-  <p>
-  
-  <ul>
-  
-  <li>
-  <a href ="/mayors">Mayors and the Moola</a>
-  </li>
-  <li>
-  <a href ="/bonus">Top Budgeted Bonuses</a>
-  </li>
-  <li>
-  <a href ="/pricey">Most Expensive Council Management Teams</a>
-  </li>
-  <p>
-  </div>
-  
-  
-  
   </body>
-  
 
 </html>

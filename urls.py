@@ -23,6 +23,8 @@ urlpatterns = patterns('',
 	 url(r'^council/(?P<code>\w{3,8})', 'myproject.council_pay.views.detail'),
 	 url(r'^bonus/', 'myproject.council_pay.views.performance'),
 	 url(r'^pricey/', 'myproject.council_pay.views.pricey_council'),
+	 url(r'^mayors/', 'myproject.council_pay.views.mayors'),
+	 
 )
 
 if settings.DEBUG:
