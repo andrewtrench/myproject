@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/static/style.css" />
 </head>
 <h1>Top 50 Municipal Performance Bonuses</h1>
+<p>Note: This data originates from the South African National Treasury and we are not responsible for errrors in the original data</p>
 <body>
 {% load humanize %}
 
@@ -10,13 +11,15 @@
 <tr>
 <th>Council</th>
 <th>Position</th>
+<th>No. of staff in category</th>
 <th>Budgeted Bonus</th>
+
 </tr>
 
 {% for item in bonuses %}
 
 <tr>
-<td>{{ item.council }}</a></td><td>{{ item.role}}</td><td>R{{ item.performance_bonus|floatformat:"-2"|intcomma }}</td>
+<td>{{ item.council }}</a></td><td>{{ item.role}}</td><td>{{ item.number }}</a></td><td>R{{ item.performance_bonus|floatformat:"-2"|intcomma }}</td>
 <tr>
 {% endfor %}
 <table>

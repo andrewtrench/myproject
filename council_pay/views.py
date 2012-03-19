@@ -75,7 +75,7 @@ def detail(request, code):
 	})
 	
 def performance(request):
-   bonuses = Councilpay.objects.all().exclude(performance_bonus = 0).exclude(role__icontains='Total').exclude(role__icontains='Executive Managers (x6)').order_by('-performance_bonus')
+   bonuses = Councilpay.objects.all().exclude(performance_bonus = 0).exclude(number__gt = 2).exclude(role__icontains='Total').exclude(role__icontains='Executive Managers (x6)').order_by('-performance_bonus')
    return render_to_response('bonus.html',{'bonuses':bonuses})
    
 def pricey_council(request):

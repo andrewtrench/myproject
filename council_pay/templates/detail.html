@@ -31,6 +31,7 @@ function initialize() {
 <tr>
 <th>Positon</th>
 <th>Package</th>
+<th>No. of staff</th>
 <th>Salary</th>
 <th>Bonus</th>
 <th>Contributions</th>
@@ -40,6 +41,7 @@ function initialize() {
 <tr>
 <td>{{ item.role}}</td>
 <td>R{{ item.total_package|floatformat:"-2"|intcomma  }}</td>
+<td>{{ item.number }}</td>
 <td>R{{ item.salary|floatformat:"-2"|intcomma  }}</td>
 <td>R{{ item.performance_bonus|floatformat:"-2"|intcomma }}</td>
 <td>R{{ item.contributions|floatformat:"-2"|intcomma }}</td>
