@@ -4,7 +4,7 @@ from django.views.generic import DetailView, ListView
 from django.shortcuts import render_to_response, get_object_or_404
 from myproject.council_pay.models import Councilpay, Geo
 from django.db.models import Count, Q
-
+from pylab import *
 
 
 
@@ -50,10 +50,10 @@ def detail(request, code):
     code = "("+code+")" #put the brackets back to make the search easier
     
     council = Councilpay.objects.filter(council__icontains=new_code).order_by('-total_package')
-    print council[1]
+    
     name = council[1].council.split('(')[0]
     province = council[1].province
-    print new_code
+    
     council_loc = Geo.objects.filter(code=new_code)
     if len(council_loc)==0:
 	   lat = '-31.288566'
@@ -70,7 +70,7 @@ def detail(request, code):
            area = council_loc[0].area
            population = council_loc[0].population
 		 
-		 
+    		 
    	
 	
 	

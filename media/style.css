@@ -26,6 +26,10 @@ font-size:24px;
 
 }
 
+div.left_box img {
+padding-left: 20px;
+}
+
 div.right_box{
     float: right;
     margin: 70px 0px 0px 0px;
@@ -33,8 +37,17 @@ div.right_box{
     width: 310px;
 margin-right:10px;
 
+}
+
+div.right_box_two {
+    float: right;
+    margin: 70px 0px 0px 0px;
+
+    width: 310px;
+margin-right:10px;
 
 }
+
 
 #map 
 {
