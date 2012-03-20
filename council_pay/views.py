@@ -4,7 +4,7 @@ from django.views.generic import DetailView, ListView
 from django.shortcuts import render_to_response, get_object_or_404
 from myproject.council_pay.models import Councilpay, Geo
 from django.db.models import Count, Q
-from pygooglechart import PieChart3D
+
 
 
 
@@ -44,10 +44,13 @@ def search(request):
 	
 
 def detail(request, code):
-    new_code = code
-    code = "("+code+")"
+    #this view displays the detail of the municipality
+	
+    new_code = code # variable used for looking up the concil code in the geo database with table with gis co-ords
+    code = "("+code+")" #put the brackets back to make the search easier
     
-    council = Councilpay.objects.filter(council__icontains=code).filter(total_package__gt = 0).order_by('-total_package')
+    council = Councilpay.objects.filter(council__icontains=new_code).order_by('-total_package')
+    print council[1]
     name = council[1].council.split('(')[0]
     province = council[1].province
     print new_code
@@ -68,18 +71,7 @@ def detail(request, code):
            population = council_loc[0].population
 		 
 		 
-    chart = PieChart3D(150,150)
-    chart_data=council.exclude(role__icontains="Total")[0:5]
-    cash = []
-    for item in chart_data:
-	   cash.append(item.total_package)
-    chart.add_data(cash)
-    labels = []
-    for item in chart_data:
-	   labels.append(item.role)
-    chart.set_pie_labels(labels)
-    chart_url = chart.get_url()
-	
+   	
 	
 	
 	  
@@ -91,7 +83,7 @@ def detail(request, code):
 	'zoom':zoom,
 	'area': area,
 	'population': population,
-	'chart_url': chart_url,
+	
 	
 	})
 	
