@@ -85,11 +85,6 @@ table {
   line-height:2em; 
   border:1px solid #888;
   }
-table caption
-{
-font-size: 9px;
-}
-
 td, th {
   padding:0 0.5em; 
   border-top:1px solid #888;
@@ -291,4 +286,10 @@ font-family: arial,verdana, sans-serif;
 color:#000;
 font-size:13px;
 font-weight:bold;
+}
+
+caption{
+  font-family: arial,verdana, sans-serif; 
+font-size:10px; 
+border:none;
 }
