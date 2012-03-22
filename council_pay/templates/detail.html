@@ -32,9 +32,10 @@ function initialize() {
 {% load humanize %}
 <h1>Council: {{ name }} - {{ province }}<a href="../search_form"><img padding ="10" src="/static/arrow_back.png" alt="back to search page" /></a></h1>
 <table border = 1>
+<caption>Source: National Treasury, based on 2010-2011 budgeted figures</caption>
 <tr>
 <th>Positon</th>
-<th>Package</th>
+<th>Total costs</th>
 <th>No. of staff</th>
 <th>Salary</th>
 <th>Bonus</th>
@@ -63,7 +64,8 @@ function initialize() {
 	</div>
 	<p>{{ message }}</p>
 	<table border = 1>
-	<tr>
+	<caption>Source: Statistics SA Community Survey 2007</caption>
+        <tr>
 	<th>Area km2</th>
 	<th>Population</th>
 	</tr>
@@ -72,7 +74,7 @@ function initialize() {
 	<td>{{ population }}</td>
 	</tr>
 	</table>
-	
+        	
 	</body>
 	</div>
 <div class = "right_box_two">
