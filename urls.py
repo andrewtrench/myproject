@@ -24,6 +24,7 @@ urlpatterns = patterns('',
 	 url(r'^bonus/', 'myproject.council_pay.views.performance'),
 	 url(r'^pricey/', 'myproject.council_pay.views.pricey_council'),
 	 url(r'^mayors/', 'myproject.council_pay.views.mayors'),
+	 url(r'^mm/', 'myproject.council_pay.views.mm'),
 	 
 )
 

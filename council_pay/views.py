@@ -101,6 +101,12 @@ def mayors(request):
    
    return render_to_response('mayors.html',{'mayors':mayors})
 
+def mm(request):
+   mm = Councilpay.objects.filter(Q(role = "Municipal Manager (MM)") | Q(role = "City Manager")).order_by('-total_package')
+   
+   
+   return render_to_response('mm.html',{'mm':mm})   
+   
 def graph(request):
    return render_to_response('detail_graph.html')   
 

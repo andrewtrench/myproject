@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+<h1>SA's Most Expensive Municipal Managers</h1>
+
+<body>
+{% load humanize %}
+
+<table border=1>
+<caption>Data originates from the South African National Treasury. We are not responsible for errors in the original data</caption>
+<tr>
+<th>Council</th>
+<th>Position</th>
+<th>No. of staff in category</th>
+<th>Bonus</th>
+<th>Total Package</th>
+
+</tr>
+
+{% for item in mm %}
+
+<tr>
+<td>{{ item.council }}</a></td><td>{{ item.role}}</td><td>{{ item.number }}</a></td><td>R{{ item.performance_bonus|floatformat:"-2"|intcomma }} <td>R{{ item.total_package|floatformat:"-2"|intcomma }}</td>
+<tr>
+{% endfor %}
+<table>
+</body>
+</html>
