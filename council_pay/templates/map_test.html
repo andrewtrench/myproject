@@ -1,0 +1,76 @@
+<!DOCTYPE html >
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+var map;
+function initialize() {
+	
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: {{ zoom }},
+		
+        center: new google.maps.LatLng({{ lat }},{{ lng }}),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+		
+    });
+	
+}
+</script>
+
+</head>
+<div class = "wrapper">
+
+<div class = "left_box">
+
+	
+{% load humanize %}
+<h1>{{ name }} - {{ province }}</h1>
+<table border = 1>
+<tr>
+<th>Positon</th>
+<th>Package</th>
+<th>No. of staff</th>
+<th>Salary</th>
+<th>Bonus</th>
+<th>Contributions</th>
+</tr>
+{% for item in council %}
+
+<tr>
+<td>{{ item.role}}</td>
+<td>R{{ item.total_package|floatformat:"-2"|intcomma  }}</td>
+<td>{{ item.number }}</td>
+<td>R{{ item.salary|floatformat:"-2"|intcomma  }}</td>
+<td>R{{ item.performance_bonus|floatformat:"-2"|intcomma }}</td>
+<td>R{{ item.contributions|floatformat:"-2"|intcomma }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+<div class = "right_box" >
+<body onload = 'initialize()'>
+
+
+    <div id=map>
+	
+
+	</div>
+	<p>{{ message }}</p>
+	<table border = 1>
+	<tr>
+	<th>Area km2</th>
+	<th>Population</th>
+	</tr>
+	<tr>
+	<td>{{ area }}</td>
+	<td>{{ population }}</td>
+	</tr>
+	</table>
+	
+	</body>
+	</div>
+
+</div>
+</html>

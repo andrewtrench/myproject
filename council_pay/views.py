@@ -107,6 +107,13 @@ def mm(request):
    
    return render_to_response('mm.html',{'mm':mm})   
    
+def total_exec(request):
+   executives = Councilpay.objects.filter(role = 'TOTAL COST OF COUNCILLOR, DIRECTOR and EXECUTIVE REMUNERATION').order_by('-total_package')
+   
+   
+   return render_to_response('exec.html',{'executives':executives})   
+
+   
 def graph(request):
    return render_to_response('detail_graph.html')   
 

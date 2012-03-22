@@ -1,0 +1,6 @@
+to do
+404 page
+data credits on each page
+back button on each page
+do other special views
+google analytics
