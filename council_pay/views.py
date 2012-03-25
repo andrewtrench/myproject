@@ -96,7 +96,7 @@ def pricey_council(request):
    return render_to_response('mostpricey.html', {'total_bill': total_bill}) 
    
 def mayors(request):
-   mayors = Councilpay.objects.filter(Q(role = "Executive Mayor") | Q(role = "Mayor")).order_by('-total_package')
+   mayors = Councilpay.objects.filter(Q(role = "Executive Mayor") | Q(role = "Mayor")).exclude(council__icontains ='Maluti-a-Phofung(FS194)').order_by('-total_package')
    
    
    return render_to_response('mayors.html',{'mayors':mayors})

@@ -6,63 +6,66 @@ xx  Country: England                xx
 xx  Date: 2005-10-23                xx
 xx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
-h1{
+h1 {
   font-family: arial,verdana, sans-serif; 
 font-size:24px; 
 margin-top:20px;
-
 }
 
-div.left_box{
+.left_box {
     float: left;
     margin: 5px;
     width: 610px;
-
 }
 
-div.left_box h1{
-  font-family: arial,verdana, sans-serif; 
-font-size:24px; 
-
+.left_box img {
+    float: left;
+    margin: 0px 5px 5px 5px;
+	padding-right:10px;
+    width: 30px;
+	text-decoration: none;
+	border: 0 none;
 }
 
-div.left_box img {
-padding-left: 20px;
+ul {
+	list-style-image: url('http://www.m24i.co.za/wp-content/uploads/2012/03/coin1.gif');
 }
 
-div.right_box{
+
+.left_box h1{
+  	font-family: arial,verdana, sans-serif; 
+	font-size:24px; 
+}
+
+
+.right_box {
+	float: right;
+	width: 300px;
+	margin-right:10px;
+	margin-left:10px;
+}
+
+.right_box_two {
     float: right;
-    margin: 70px 0px 0px 0px;
-
-    width: 310px;
-margin-right:10px;
-
+	width: 300px;
+	margin-right:10px;
 }
-
-div.right_box_two {
-    float: right;
-    margin: 70px 0px 0px 0px;
-
-    width: 310px;
-margin-right:10px;
-
-}
-
 
 #map 
 {
-width: 300px;
-height: 300px;
-padding: 5px; 
-border:1px solid #888;
+	width: 290px;
+	height: 300px;
+	padding: 5px; 
+	border:1px solid #888;
+	margin-top:120px;
 }
-#front_map
-{
-width:700px;
-height: 500px;
-padding: 15px;
-margin-top:10px;
-border: 1px solid #888;
+
+#front_map {
+	width:600px;
+	height: 570px;
+	padding: 15px;
+	margin-top:10px;
+	border: 1px solid #888;
 }
 
 
@@ -144,12 +147,12 @@ tbody tr.odd th a:visited {
 tbody td a:visited {
   color:#000; 
   font-weight:normal; 
-  text-decoration:line-through;
+  text-decoration:none;
   }
 tbody td a {
   color:#000; 
-  border: 0.8em solid #eee;
   font-weight:normal;
+  text-decoration:none;
   }
 tbody tr th a:hover {
   color:#fff; 
@@ -160,10 +163,16 @@ tbody tr.odd th a:hover {
   border-right:0.8em solid #eee;
   }
 tbody td a:hover {
-  color:#c00; 
+  color:#777; 
   font-weight:normal; 
   text-decoration:none;
   }
+
+.right_box ul li a:hover {
+  color:#777; 
+  
+  }
+
 label
 {
 width: 4em;
@@ -173,16 +182,10 @@ margin-right: 0.5em;
 display: block
 }
 
-.submit input
-{
-margin-left: 4.5em;
-}
+
 input
 {
-color: #000000;
-background: #cccccc;
-
-font-size:18px; 
+font-size:14px;
 
 }
 
@@ -219,11 +222,66 @@ float: right;
   font-family: arial,verdana, sans-serif; 
   font-size:16px;
 font-weight:bold;
+color: #042984;
+}
+
+.right_box h2 
+{
+  margin-left:16px;font-family: arial,verdana, sans-serif; 
+  font-size:16px;
+font-weight:bold;
+color: #042984;
+}
+
+.right_box_two h2 
+{
+  font-family: arial,verdana, sans-serif; 
+  font-size:16px;
+font-weight:bold;
+color: #042984;
+border-top:2px solid #ccc;
+padding-top:12px;
 }
 
 tbody tr td {
 color: #000;
 border-style: solid;
 border-color: #000;
+}
 
-  }
+.right_box ul 
+{
+
+font-family: arial,verdana, sans-serif; 
+  font-size:13px;
+font-weight:normal;
+  text-decoration:none; 
+}
+
+.right_box ul li a
+{
+color:#000;
+text-decoration:none; 
+line-height: 2 ;
+}
+
+.blurb {
+width:600px;
+font-family: arial,verdana, sans-serif; 
+color:#000;
+font-size:13px;
+text-decoration:none; 
+}
+
+.left_box p {
+font-family: arial,verdana, sans-serif; 
+color:#000;
+font-size:13px;
+font-weight:bold;
+}
+
+caption{
+  font-family: arial,verdana, sans-serif; 
+font-size:10px; 
+border:none;
+}
